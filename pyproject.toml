@@ -1,0 +1,33 @@
+[project]
+name = "boilerplate-python"
+version = "0.1.0"
+description = "Boilerplate repository for Python projects."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["mypy", "ruff"]
+test = ["pytest", "pytest-cov"]
+
+[tool.uv]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+fix = true
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I", "UP", "SIM", "C4", "S", "ARG", "PL"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+ignore_missing_imports = true
+disallow_untyped_defs = true
+warn_unused_ignores = true
+warn_return_any = true
+show_error_codes = true
