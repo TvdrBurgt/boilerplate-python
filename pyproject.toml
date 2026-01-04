@@ -6,28 +6,24 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
 
-[project.optional-dependencies]
-dev = ["mypy", "ruff"]
-test = ["pytest", "pytest-cov"]
-
-[tool.uv]
+[dependency-groups]
+test = [
+    "pytest"
+]
+lint = [
+    "ruff"
+]
 
 [tool.ruff]
-line-length = 88
-target-version = "py313"
+line-length = 100
 fix = true
 
 [tool.ruff.format]
 quote-style = "double"
 
 [tool.ruff.lint]
-select = ["E", "F", "B", "I", "UP", "SIM", "C4", "S", "ARG", "PL"]
+select = ["B", "D", "E", "F", "I", "N", "SIM", "UP", "C4", "S", "ARG", "PL"]
+ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D107", "B027"]
 
-[tool.mypy]
-python_version = "3.10"
-strict = true
-ignore_missing_imports = true
-disallow_untyped_defs = true
-warn_unused_ignores = true
-warn_return_any = true
-show_error_codes = true
+[tool.ruff.lint.pydocstyle]
+convention = "google"
